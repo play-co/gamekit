@@ -2,7 +2,9 @@ Devkit GameKit Plugin
 =====================
 
 Game Closure devkit support for iOS Game Center (GameKit) and Android
-`<android-game-center-name>`
+Game Services
+
+![screen shot 2015-02-05 at 9 15 02 pm](https://cloud.githubusercontent.com/assets/4285147/6074938/1a71a85a-ad7e-11e4-850f-763c24280f0f.png)
 
 ## Getting Started
 
