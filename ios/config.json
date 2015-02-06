@@ -1,0 +1,14 @@
+{
+	"code": [
+		"GameKitPlugin.h",
+		"GameKitPlugin.mm"
+	],
+	"frameworks": [
+		"GameKit"
+	],
+	"userDefined": [
+	],
+	"plist": {
+		"UIRequiredDeviceCapabilities": ["gamekit"]
+	}
+}

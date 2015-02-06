@@ -1,0 +1,19 @@
+{
+  "name": "devkit-gamecenter",
+  "version": "0.1.0",
+  "devkit": {
+    "clientPaths": {
+      "GameKit": "js"
+    },
+    "extensions": {
+      "ios": "ios"
+    }
+  },
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "jsio": "^2.0.0"
+  },
+  "scripts": {
+    "test": "mocha --recursive -R spec -C test"
+  }
+}
