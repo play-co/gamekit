@@ -66,7 +66,9 @@ var nativeImpl = {
    */
 
   showGameCenter: function nativeShowGameCenter (cb) {
-    return GKPlugin.request('showGameCenter', cb);
+    return GKPlugin.request('showGameCenter', function (err, res) {
+      cb && cb(err, res);
+    });
   },
 
   /**
