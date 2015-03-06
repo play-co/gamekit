@@ -19,6 +19,10 @@ static NSArray* _leaderboards = nil;
 - (void) registerAuthHandler {
     GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
     localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error) {
+        if (error != nil) {
+            NSLOG(@"{GameKitPlugin} Error %@", error.localizedDescription);
+            return;
+        }
 
         // gameCenterEnabled is false until authentication succeeds
         if (viewController != nil) {
@@ -210,6 +214,7 @@ static NSArray* _leaderboards = nil;
 
 - (void) initializeWithManifest:(NSDictionary *)manifest appDelegate:(TeaLeafAppDelegate *)appDelegate {
     rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    NSLOG(@"{GameKitPlugin} initializeWithManifest");
     [self registerAuthHandler];
     [[PluginManager get] dispatchEvent:@"GameKitPluginReady"
                              forPlugin:self
