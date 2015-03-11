@@ -109,6 +109,7 @@ var nativeImpl = {
     if (!opts.score || (typeof opts.score !== 'number')) {
       throw new Error('must provide valid score');
     }
+
     GKPlugin.notify('submitScore', opts);
   },
 
@@ -139,7 +140,7 @@ nativeImpl.authHandler = function (err, player) {
  */
 
 GKPlugin.subscribe('auth:success', function (res) {
-  nativeImpl.authHandler(void 0, res.player);
+  nativeImpl.authHandler(null, res.player);
 });
 
 GKPlugin.subscribe('auth:failure', function (res) {

@@ -36,7 +36,7 @@ var methods = [
 
 // Proxy methods to implementation
 methods.forEach(function (method) {
-    GameKit.prototype[method] = function () {
+    GameKit.prototype[method] = function gameKitMethodProxy () {
         return this.impl[method].apply(this.impl, arguments);
     };
 });
@@ -56,7 +56,7 @@ properties.forEach(function (name) {
 
 propertiesObject.impl = {
   get: function () {
-    if (device.isMobileNative && device.isIOS) {
+    if (device.isMobileNative) {
       return native;
     }
     return browser;

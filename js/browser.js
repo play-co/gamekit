@@ -33,7 +33,7 @@ exports = {
     // Instead of registering, just call it async
     setTimeout(function () {
       cb(null, {
-        playerID: '0981237891234',
+        playerID: 'THIS_IS_BROWSER',
         displayName: 'Me'
       });
     });

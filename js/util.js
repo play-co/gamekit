@@ -12,6 +12,7 @@ function getNativeInterface (pluginName, opts) {
   var events = new lib.PubSub();
   var subscribedTo = {};
   GC.plugins.register(pluginName, events);
+  var log  = logger.log.bind(logger, '{' + pluginName + '.js}');
   return {
     notify: function sendNativeEvent (event, data) {
       data = JSON.stringify(data || {});
@@ -24,9 +25,6 @@ function getNativeInterface (pluginName, opts) {
       return res;
     },
     request: function sendNativeRequest (event, data, cb) {
-      logger.log('[js] {' + pluginName + '} sending request', event);
-      logger.log('\tdata:', JSON.stringify(data, null, '\t'));
-
       if (typeof data === 'function') {
         cb = data;
         data = {};
@@ -63,6 +61,7 @@ function getNativeInterface (pluginName, opts) {
         fn(err, res);
       };
 
+      log('sending request', pluginName, event, data);
       NATIVE.plugins.sendRequest(pluginName, event, data, unpackResults);
     },
     subscribe: function onNativeEvent (event, cb) {
