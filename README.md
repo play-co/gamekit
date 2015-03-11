@@ -89,7 +89,11 @@ or your iDevice's settings and set sandbox mode under **Settings > Game
 Center**. You need to be logged into game center and reinstall your app to
 enable it.
 
-## Android Testing
+## Android Setup
+
+The instructions below are a high level summary of requirements for using the
+GameKit plugin. Details of setting up your app in Google Play and the app in
+Game Services are easily found online and are out of scope for this discussion.
 
 1. Set up your application on Google Play
 2. Set up game services
