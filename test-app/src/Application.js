@@ -3,6 +3,8 @@ import ui.ScrollView as ScrollView;
 import GameKit;
 import device;
 
+var LEADERBOARD_ID = '';
+
 var boundsWidth = 576;
 var boundsHeight = 1024;
 var baseWidth = device.screen.width * (boundsHeight / device.screen.height);
@@ -71,7 +73,6 @@ exports = Class(GC.Application, function () {
     this.bShowAuthDialog.on('InputSelect', function () {
       GameKit.showAuthDialog();
     });
-    GameKit.showAuthDialog();
 
     this.bShowBanner = new TextView(merge({
       x: 20,
@@ -79,6 +80,7 @@ exports = Class(GC.Application, function () {
       text: 'Show Banner',
       superview: this.view
     }, viewOpts));
+
     this.bShowBanner.on('InputSelect', function () {
       GameKit.showNotificationBanner({
         title: 'Test Banner',
@@ -110,6 +112,7 @@ exports = Class(GC.Application, function () {
     this.bGetLeaderboards.on('InputSelect', function () {
       GameKit.getLeaderboards(function (err, leaderboards) {
         var list = err ? [err.message] : leaderboards;
+        LEADERBOARD_ID = list[0].identifier;
         self.populateScrollView(list);
       });
     });
@@ -134,10 +137,7 @@ exports = Class(GC.Application, function () {
 
     this.bSubmitScore.onInputSelect = function () {
       game.score++;
-      GameKit.submitScore({
-        leaderboard: 'kiwi_distance',
-        score: game.score
-      });
+      GameKit.submitScore({ leaderboard: LEADERBOARD_ID, score: game.score });
 
       self.populateScrollView(['Submitted score ' + game.score]);
     };
@@ -150,7 +150,7 @@ exports = Class(GC.Application, function () {
     }, viewOpts));
 
     this.bListScores.onInputSelect = function () {
-      GameKit.getScores({leaderboard: 'kiwi_distance'}, function (err, scores) {
+      GameKit.getScores({leaderboard: LEADERBOARD_ID}, function (err, scores) {
         var list = err ? [err.message] : scores;
         self.populateScrollView(list);
       });
@@ -187,11 +187,9 @@ exports = Class(GC.Application, function () {
     GameKit.registerAuthHandler(function (err, player) {
       if (err) {
         self.tAuthStatus.setText('Auth Error:', err.message);
-        logger.log('authError:', err);
         return;
       }
 
-      logger.log('localPlayer:', player);
       self.tAuthStatus.setText('ID:' + player.playerID);
     });
   };
