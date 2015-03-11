@@ -1,0 +1,1 @@
+let g:syntastic_java_javac_classpath = '.:~/code/native-android/TeaLeaf/src:~/lib/facebook-android-sdk-3.20.0/facebook/src:/usr/local/var/lib/android-sdk/platforms/android-21/android.jar:/usr/local/var/lib/android-sdk/extras/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar'

@@ -1,0 +1,14 @@
+{
+  "copyFiles": [
+    "GameKitPlugin.java",
+    "res/values/version.xml",
+    "res/values/gamekit_app_values.xml"
+  ],
+  "libraries": [
+  ],
+  "jars": [
+    "gps.jar"
+  ],
+  "injectionXML": "manifest.xml",
+  "injectionXSL": "manifest.xsl"
+}

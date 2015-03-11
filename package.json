@@ -6,7 +6,9 @@
       "GameKit": "js"
     },
     "extensions": {
-      "ios": "ios"
+      "ios": "ios",
+      "android": "android",
+      "build": "build"
     }
   },
   "devDependencies": {

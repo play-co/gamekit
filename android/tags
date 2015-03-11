@@ -1,0 +1,43 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+GKP_AUTH_REQUEST	GameKitPlugin.java	/^  private static Integer GKP_AUTH_REQUEST = 11337;$/;"	f	class:GameKitPlugin	file:
+GKP_SHOW_LEADERBOARD	GameKitPlugin.java	/^  private static Integer GKP_SHOW_LEADERBOARD = 11338;$/;"	f	class:GameKitPlugin	file:
+GameKitPlugin	GameKitPlugin.java	/^public class GameKitPlugin implements IPlugin,$/;"	c
+PLUGIN_NAME	GameKitPlugin.java	/^  static String PLUGIN_NAME = "GameKitPlugin";$/;"	f	class:GameKitPlugin
+_activity	GameKitPlugin.java	/^  Activity _activity;$/;"	f	class:GameKitPlugin
+_authed	GameKitPlugin.java	/^  boolean _authed = false;$/;"	f	class:GameKitPlugin
+_client	GameKitPlugin.java	/^  GoogleApiClient _client;$/;"	f	class:GameKitPlugin
+_context	GameKitPlugin.java	/^  Context _context;$/;"	f	class:GameKitPlugin
+_loginConnection	GameKitPlugin.java	/^  ConnectionResult _loginConnection = null;$/;"	f	class:GameKitPlugin
+_player	GameKitPlugin.java	/^  Player _player = null;$/;"	f	class:GameKitPlugin
+_showGameCenterRequest	GameKitPlugin.java	/^  Integer _showGameCenterRequest = null;$/;"	f	class:GameKitPlugin
+_triedSignin	GameKitPlugin.java	/^  boolean _triedSignin = false;$/;"	f	class:GameKitPlugin
+authenticated	GameKitPlugin.java	/^  public String authenticated (JSONObject req) {$/;"	m	class:GameKitPlugin
+com.tealeaf.plugin.plugins	GameKitPlugin.java	/^package com.tealeaf.plugin.plugins;$/;"	p
+connectionFailedResponse	GameKitPlugin.java	/^  private JSONObject connectionFailedResponse() {$/;"	m	class:GameKitPlugin	file:
+getLeaderboards	GameKitPlugin.java	/^  public void getLeaderboards (JSONObject req, Integer requestId) {$/;"	m	class:GameKitPlugin
+getScores	GameKitPlugin.java	/^  public void getScores (JSONObject req, final Integer requestId) {$/;"	m	class:GameKitPlugin
+log	GameKitPlugin.java	/^  public static void log(Object... args) {$/;"	m	class:GameKitPlugin
+onActivityResult	GameKitPlugin.java	/^  public void onActivityResult(Integer request, Integer result, Intent data) {$/;"	m	class:GameKitPlugin
+onConnected	GameKitPlugin.java	/^  public void onConnected(Bundle connectionHint) {$/;"	m	class:GameKitPlugin
+onConnectionFailed	GameKitPlugin.java	/^  public void onConnectionFailed(ConnectionResult connectionResult) {$/;"	m	class:GameKitPlugin
+onConnectionSuspended	GameKitPlugin.java	/^  public void onConnectionSuspended(int i) {$/;"	m	class:GameKitPlugin
+onCreate	GameKitPlugin.java	/^  public void onCreate(Activity activity, Bundle savedInstanceState) {$/;"	m	class:GameKitPlugin
+onCreateApplication	GameKitPlugin.java	/^  public void onCreateApplication(Context applicationContext) {$/;"	m	class:GameKitPlugin
+onDestroy	GameKitPlugin.java	/^  public void onDestroy() {$/;"	m	class:GameKitPlugin
+onNewIntent	GameKitPlugin.java	/^  public void onNewIntent(Intent intent) {$/;"	m	class:GameKitPlugin
+onPause	GameKitPlugin.java	/^  public void onPause() {$/;"	m	class:GameKitPlugin
+onResume	GameKitPlugin.java	/^  public void onResume() {$/;"	m	class:GameKitPlugin
+onStart	GameKitPlugin.java	/^  public void onStart() {$/;"	m	class:GameKitPlugin
+onStop	GameKitPlugin.java	/^  public void onStop() {$/;"	m	class:GameKitPlugin
+setInstallReferrer	GameKitPlugin.java	/^  public void setInstallReferrer(String referrer) {$/;"	m	class:GameKitPlugin
+showAuthDialog	GameKitPlugin.java	/^  public void showAuthDialog (JSONObject req) {$/;"	m	class:GameKitPlugin
+showGameCenter	GameKitPlugin.java	/^  public void showGameCenter (JSONObject req, Integer reqId) {$/;"	m	class:GameKitPlugin
+showNotificationBanner	GameKitPlugin.java	/^  public void showNotificationBanner (JSONObject req) {$/;"	m	class:GameKitPlugin
+submitScore	GameKitPlugin.java	/^  public void submitScore (JSONObject req) {$/;"	m	class:GameKitPlugin
+toJSON	GameKitPlugin.java	/^  private static JSONObject toJSON(LeaderboardScore score) {$/;"	m	class:GameKitPlugin	file:
+toJSON	GameKitPlugin.java	/^  private static JSONObject toJSON(Player player) {$/;"	m	class:GameKitPlugin	file:
