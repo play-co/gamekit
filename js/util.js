@@ -10,7 +10,6 @@ import lib.PubSub;
 function getNativeInterface (pluginName, opts) {
   opts = opts || {};
   var events = new lib.PubSub();
-  var subscribedTo = {};
   GC.plugins.register(pluginName, events);
   var log  = logger.log.bind(logger, '{' + pluginName + '.js}');
   return {

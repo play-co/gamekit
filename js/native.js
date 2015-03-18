@@ -1,4 +1,9 @@
 import .util;
+import .config as configTools;
+import device;
+
+var platform = device.isIOS ? 'ios' : 'android';
+var config = configTools.parse(CONFIG.modules.gamekit, platform);
 
 /**
  * @typedef {Object} GKLeaderboard
@@ -40,7 +45,9 @@ var nativeImpl = {
   getLeaderboards: function nativeGetLeaderboards (cb) {
     GKPlugin.request('getLeaderboards', function (err, res) {
       if (err) { return cb(err); }
-      return cb(null, res.leaderboards);
+      return cb(null, res.leaderboards.map(function (lb) {
+        lb.identifier = config.ladder.reference(lb.identifier);
+      }));
     });
   },
 
@@ -55,6 +62,10 @@ var nativeImpl = {
     if (!opts.leaderboard || typeof opts.leaderboard !== 'string') {
       throw new Error('Must provide valid leaderboard');
     }
+
+    opts = JSON.parse(JSON.stringify(opts));
+    opts.leaderboard = config.ladder.provider(opts.leaderboard);
+
     GKPlugin.request('getScores', opts, function (err, res) {
       if (err) { return cb(err); }
       cb(null, res.scores);
@@ -109,6 +120,9 @@ var nativeImpl = {
     if (!opts.score || (typeof opts.score !== 'number')) {
       throw new Error('must provide valid score');
     }
+
+    opts = JSON.parse(JSON.stringify(opts));
+    opts.leaderboard = config.ladder.provider(opts.leaderboard);
 
     GKPlugin.notify('submitScore', opts);
   },

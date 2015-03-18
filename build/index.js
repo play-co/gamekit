@@ -20,32 +20,51 @@ function generateResourceXML (values) {
     '\n</resources>';
 }
 
-exports.onBeforeBuild = function (devkitAPI, app, config, cb) {
-  console.log('GAMEKIT PLUGIN ONBEFOREBUILD');
+/**
+ * GameKit.build#onBeforeBuild
+ *
+ * Write a <resources> XML section with config for android.
+ */
 
-  // Generate gamekit plugin resources for android
+
+exports.onBeforeBuild = function (devkitAPI, app, config, cb) {
+  var log = console.log.bind(null, '{GameKit} onBeforeBuild -');
+  log('starting');
+
   if (config.target === 'native-android') {
     console.log(app.manifest);
     var values;
-    var gamekit = app.manifest.addons.gamekit.android;
+    var gk = app.manifest.addons.gamekit.android;
     try {
       values = {
         integers: [ ],
         strings: [
           {
             name: 'app_id',
-            value: gamekit.app_id
+            value: gk.app_id
           }
         ]
       };
+      var strings = values.strings;
 
-      var ladders = Object.keys(gamekit.ladders).map(function (ladder) {
-        return { name: 'ladder_' + ladder, value: gamekit.ladders[ladder] };
-      });
-      values.strings.push.apply(values.strings, ladders);
+      // add configured ladders to list of string values
+      var ladders = Object.keys(gk.ladders);
+      strings.push.apply(strings, ladders.map(function (ladder) {
+        return { name: gk.ladders[ladder].name, value: gk.ladders[ladder].id };
+      }));
+
+      // Add configured achievements to list of string values
+      var achievements = Object.keys(gk.achievements);
+      strings.push.apply(strings, achievements.map(function (achievement) {
+        return {
+          name: gk.achievements[achievement].name,
+          value: gk.achievements[achievement].id
+        };
+      }));
+
     } catch (e) {
-      console.error('Error generating GameKit android config');
-      console.error('Make sure all required values are provided');
+      console.error('\n\nError generating GameKit android config');
+      console.error('Make sure all required values are provided\n\n');
       return cb && cb(e);
     }
 
@@ -56,8 +75,10 @@ exports.onBeforeBuild = function (devkitAPI, app, config, cb) {
 
     mkdirp.sync(dirname);
     fs.writeFile(resourceFile, xml, {encoding: 'utf8'}, function (err) {
-      cb && cb(err);
+      cb(err);
     });
+  } else {
+    cb(null);
   }
 
 };

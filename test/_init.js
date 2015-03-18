@@ -5,3 +5,4 @@ jsio = require('jsio');
 var path = require('path');
 jsio.addPath(path.join(__dirname, '..', 'node_modules', 'jsio', 'packages'));
 
+jsio.path.cache.GameKit = path.join(__dirname, '..', 'js');
