@@ -184,6 +184,10 @@ static NSArray* _leaderboards = nil;
     [GKScore reportScores:scores withCompletionHandler:nil];
 }
 
+- (void) unlockAchievement(NSDictionary*)opts {
+    // TODO iOS achievements
+}
+
 // -----------------------------------------------------------------------------
 // Helper functions
 // -----------------------------------------------------------------------------

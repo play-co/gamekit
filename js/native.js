@@ -128,6 +128,23 @@ var nativeImpl = {
   },
 
   /**
+   * Update progress on an achievement
+   *
+   * @param {String} opts.achievement
+   */
+
+  unlockAchievement: function nativeUnlockAchievement (opts) {
+    if (!opts.achievement || (typeof opts.achievement !== 'string')) {
+      throw new Error('must provide valid achievement id');
+    }
+
+    opts = JSON.parse(JSON.stringify(opts));
+    opts.achievement = config.achievement.provider(opts.achievement);
+
+    GKPlugin.notify('unlockAchievement', opts);
+  },
+
+  /**
    * registerAuthHandler
    *
    * The callback is called with (err, res) where res might be a
