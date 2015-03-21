@@ -69,6 +69,10 @@ Android using Game Services.
 
 Submit a single score to a single leaderboard
 
+#### unlockAchievement
+
+Unlock an achievement (Android only, TODO: iOS + full Android support)
+
 #### registerAuthHandler
 
 Set a function to be called when the user's auth status changes.
