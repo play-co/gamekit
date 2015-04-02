@@ -22,6 +22,10 @@ exports.parse = function (config, platform) {
     throw new Error('No config defined for platform ' + platform);
   }
 
+  // default to empty objects
+  pconf.achievements = pconf.achievements || {};
+  pconf.ladders = pconf.ladders || {};
+
   var reverse = {
     ladders: reverseMap(pconf.ladders, 'id'),
     achievements: reverseMap(pconf.achievements, 'id')
