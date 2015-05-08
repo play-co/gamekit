@@ -2,7 +2,7 @@
   "appID": "b5c4b2970c624d04b89d89c6cde4daa5",
   "dependencies": {
     "devkit-core": "https://github.com/gameclosure/devkit-core#v2.1.3",
-    "devkit-gamekit": "https://github.com/gameclosure/gamekit#v0.2.1"
+    "gamekit": "https://github.com/gameclosure/gamekit#v0.2.1"
   },
   "addons": {
     "gamekit": {
