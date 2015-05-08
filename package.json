@@ -17,5 +17,8 @@
   },
   "scripts": {
     "test": "mocha --recursive -R spec -C test"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.0"
   }
 }
