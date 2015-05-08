@@ -1,15 +1,15 @@
 {
   "appID": "b5c4b2970c624d04b89d89c6cde4daa5",
   "dependencies": {
-    "devkit-core": "https://github.com/gameclosure/devkit-core#v2.1.3"
-    "devkit-gamekit": "https://github.com/gameclosure/gamekit#v0.2.0"
+    "devkit-core": "https://github.com/gameclosure/devkit-core#v2.1.3",
+    "devkit-gamekit": "https://github.com/gameclosure/gamekit#v0.2.1"
   },
   "addons": {
     "gamekit": {
       "android": {
         "app_id": "01234567890",
         "ladders": {
-          "kiwi_distance": "CgjI6OjVlJ4UEAIQAg"
+          "highscore": "CgjI6OjVlJ4UEAIQAg"
         }
       }
     }
