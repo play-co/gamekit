@@ -58,6 +58,8 @@ exports.onBeforeBuild = function (devkitAPI, app, config, cb) {
     fs.writeFile(resourceFile, xml, {encoding: 'utf8'}, function (err) {
       cb && cb(err);
     });
+  } else {
+    cb && cb();
   }
 
 };
