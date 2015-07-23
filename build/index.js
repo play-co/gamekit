@@ -31,10 +31,15 @@ exports.onBeforeBuild = function (devkitAPI, app, config, cb) {
   var log = console.log.bind(null, '{GameKit} onBeforeBuild -');
   log('starting');
 
-  if (config.target === 'native-android') {
+  // support switch to modules in devkit-core 3.x
+  var moduleConfig = app.manifest.modules || app.manifest.addons;
+
+  if (config.target === 'native-android' &&
+     moduleConfig.gamekit &&
+     moduleConfig.android) {
     console.log(app.manifest);
     var values;
-    var gk = app.manifest.addons.gamekit.android;
+    var gk = moduleConfig.gamekit.android;
     try {
       values = {
         integers: [ ],
