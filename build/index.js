@@ -36,7 +36,7 @@ exports.onBeforeBuild = function (devkitAPI, app, config, cb) {
 
   if (config.target === 'native-android' &&
      moduleConfig.gamekit &&
-     moduleConfig.android) {
+     moduleConfig.gamekit.android) {
     console.log(app.manifest);
     var values;
     var gk = moduleConfig.gamekit.android;
