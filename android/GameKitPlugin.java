@@ -62,6 +62,7 @@ public class GameKitPlugin implements IPlugin,
   static String PLUGIN_NAME = "GameKitPlugin";
   private static Integer GKP_AUTH_REQUEST = 11337;
   private static Integer GKP_SHOW_LEADERBOARD = 11338;
+  private static Integer GKP_SHOW_ACHIEVEMENT = 11339;
 
   Activity _activity;
   Context _context;
@@ -72,6 +73,7 @@ public class GameKitPlugin implements IPlugin,
   boolean _triedSignin = false;
   ConnectionResult _loginConnection = null;
   Integer _showGameCenterRequest = null;
+  Integer _showAchievementRequest = null;
 
   // ---------------------------------------------------------------------------
   // JavaScript interface
@@ -121,6 +123,17 @@ public class GameKitPlugin implements IPlugin,
       _activity.startActivityForResult(intent, GKP_SHOW_LEADERBOARD);
     } else {
       String err = "{\"error\": \"Already showing game center\"}";
+      PluginManager.sendResponse(null, err, reqId);
+    }
+  }
+
+  public void showGameAchievement (JSONObject req, Integer reqId) {
+    if (_showAchievementRequest == null) {
+      _showAchievementRequest = reqId;
+      Intent intent = Games.Achievements.getAchievementsIntent(_client);
+      _activity.startActivityForResult(intent, GKP_SHOW_ACHIEVEMENT);
+    } else {
+      String err = "{\"error\": \"Already showing game achievement\"}";
       PluginManager.sendResponse(null, err, reqId);
     }
   }
@@ -394,6 +407,12 @@ public class GameKitPlugin implements IPlugin,
       if (_showGameCenterRequest != null) {
         Integer requestId = _showGameCenterRequest;
         _showGameCenterRequest = null;
+        PluginManager.sendResponse(null, null, requestId);
+      }
+    } else if (request.equals(GKP_SHOW_ACHIEVEMENT)) {
+      if (_showAchievementRequest != null) {
+        Integer requestId = _showAchievementRequest;
+        _showAchievementRequest = null;
         PluginManager.sendResponse(null, null, requestId);
       }
     }

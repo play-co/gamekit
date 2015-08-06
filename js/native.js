@@ -82,6 +82,12 @@ var nativeImpl = {
     });
   },
 
+  showGameAchievement: function nativeShowGameAchievement (cb) {
+    return GKPlugin.request('showGameAchievement', function (err, res) {
+      cb && cb(err, res);
+    });
+  },
+
   /**
    * showAuthDialog
    *

@@ -23,6 +23,9 @@ exports = {
   showGameCenter: function () {
     logger.debug('{GameKit} showGameCenter');
   },
+  showGameAchievement: function () {
+    logger.debug('{GameKit} showGameAchievement');
+  },
   showNotificationBanner: function () {
     logger.debug('{GameKit} showNotificationBanner');
   },

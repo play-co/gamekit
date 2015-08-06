@@ -69,7 +69,9 @@ static NSArray* _leaderboards = nil;
     }
 }
 
-
+- (void) showGameAchievement:(NSDictionary*)data withRequestId:(NSNumber*) requestId {
+    // TODO iOS show achievements
+}
 
 - (void) getLeaderboards:(NSDictionary*)opts withRequestId:(NSNumber*) requestId {
     [GKLeaderboard loadLeaderboardsWithCompletionHandler:^(NSArray *leaderboards, NSError *error) {

@@ -29,6 +29,7 @@ var methods = [
     'getScores',
     'showAuthDialog',
     'showGameCenter',
+    'showGameAchievement',
     'showNotificationBanner',
     'submitScore',
     'unlockAchievement',
