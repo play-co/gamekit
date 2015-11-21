@@ -193,6 +193,11 @@ public class GameKitPlugin implements IPlugin,
 
   }
 
+  public void unlockAchievement (JSONObject req) {
+    String achievement = req.optString("achievement", "");
+    Games.Achievements.unlock(_client, achievement);
+  }
+
   public String authenticated (JSONObject req) {
     JSONObject obj = new JSONObject();
     try {
@@ -392,5 +397,12 @@ public class GameKitPlugin implements IPlugin,
         PluginManager.sendResponse(null, null, requestId);
       }
     }
+  }
+
+  public boolean consumeOnBackPressed() {
+    return true;
+  }
+
+  public void onBackPressed() {
   }
 }
