@@ -31,6 +31,7 @@ var methods = [
     'showGameCenter',
     'showNotificationBanner',
     'submitScore',
+    'unlockAchievement',
     'registerAuthHandler'
 ];
 

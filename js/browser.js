@@ -29,6 +29,9 @@ exports = {
   submitScore: function (opts) {
     logger.debug('{GameKit} submitScore');
   },
+  unlockAchievement: function (opts) {
+    logger.debug('{GameKit} unlockAchievement');
+  },
   registerAuthHandler: function (cb) {
     // Instead of registering, just call it async
     setTimeout(function () {

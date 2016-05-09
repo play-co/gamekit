@@ -55,6 +55,7 @@ var nativeImpl = {
     if (!opts.leaderboard || typeof opts.leaderboard !== 'string') {
       throw new Error('Must provide valid leaderboard');
     }
+
     GKPlugin.request('getScores', opts, function (err, res) {
       if (err) { return cb(err); }
       cb(null, res.scores);
@@ -111,6 +112,20 @@ var nativeImpl = {
     }
 
     GKPlugin.notify('submitScore', opts);
+  },
+
+  /**
+   * Update progress on an achievement
+   *
+   * @param {String} opts.achievement
+   */
+
+  unlockAchievement: function nativeUnlockAchievement (opts) {
+    if (!opts.achievement || (typeof opts.achievement !== 'string')) {
+      throw new Error('must provide valid achievement id');
+    }
+
+    GKPlugin.notify('unlockAchievement', opts);
   },
 
   /**

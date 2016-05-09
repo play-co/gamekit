@@ -1,6 +1,12 @@
 #import "GameKitPlugin.h"
 #import "platform/log.h"
-#import <GameKit/GameKit.h>
+
+#define JSContext JSContext_GK
+#define JSType JSType_GK
+#  include <GameKit/GameKit.h>
+#undef JSContext
+#undef JSType
+
 
 static bool gameCenterEnabled = false;
 
@@ -182,6 +188,15 @@ static NSArray* _leaderboards = nil;
     // TODO we should probably provide a completion handler so we can
     // alert devs when their ladder is wrong
     [GKScore reportScores:scores withCompletionHandler:nil];
+}
+
+- (void) unlockAchievement:(NSDictionary*)opts {
+    GKAchievement *achievement = [[[GKAchievement alloc] initWithIdentifier:opts[@"achievement"]] autorelease];
+    if (achievement)
+    {
+        achievement.percentComplete = 100; //don't manage percent 
+        [achievement reportAchievementWithCompletionHandler: nil];
+    }
 }
 
 // -----------------------------------------------------------------------------
