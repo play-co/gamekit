@@ -1,6 +1,7 @@
 #import "GameKitPlugin.h"
 #import "platform/log.h"
-#import <GameKit/GameKit.h>
+
+
 
 static bool gameCenterEnabled = false;
 
@@ -187,7 +188,12 @@ static NSArray* _leaderboards = nil;
 }
 
 - (void) unlockAchievement:(NSDictionary*)opts {
-    // TODO iOS achievements
+    GKAchievement *achievement = [[[GKAchievement alloc] initWithIdentifier:opts[@"achievement"]] autorelease];
+    if (achievement)
+    {
+        achievement.percentComplete = 100; //don't manage percent 
+        [achievement reportAchievementWithCompletionHandler: nil];
+    }
 }
 
 // -----------------------------------------------------------------------------

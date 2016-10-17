@@ -384,6 +384,13 @@ public class GameKitPlugin implements IPlugin,
 
   }
 
+  public boolean consumeOnBackPressed() {
+    return true;
+  }
+
+  public void onBackPressed() {
+  }
+
   @Override
   public void onActivityResult(Integer request, Integer result, Intent data) {
     if (request.equals(GKP_AUTH_REQUEST)) {
