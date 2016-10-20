@@ -7,7 +7,6 @@
   "libraries": [
   ],
   "jars": [
-    "gps.jar"
   ],
   "injectionXML": "manifest.xml",
   "injectionXSL": "manifest.xsl"
