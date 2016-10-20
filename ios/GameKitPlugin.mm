@@ -1,6 +1,7 @@
 #import "GameKitPlugin.h"
 #import "platform/log.h"
-#import <GameKit/GameKit.h>
+
+
 
 static bool gameCenterEnabled = false;
 
@@ -69,7 +70,9 @@ static NSArray* _leaderboards = nil;
     }
 }
 
-
+- (void) showGameAchievement:(NSDictionary*)data withRequestId:(NSNumber*) requestId {
+    // TODO iOS show achievements
+}
 
 - (void) getLeaderboards:(NSDictionary*)opts withRequestId:(NSNumber*) requestId {
     [GKLeaderboard loadLeaderboardsWithCompletionHandler:^(NSArray *leaderboards, NSError *error) {
@@ -185,7 +188,12 @@ static NSArray* _leaderboards = nil;
 }
 
 - (void) unlockAchievement:(NSDictionary*)opts {
-    // TODO iOS achievements
+    GKAchievement *achievement = [[[GKAchievement alloc] initWithIdentifier:opts[@"achievement"]] autorelease];
+    if (achievement)
+    {
+        achievement.percentComplete = 100; //don't manage percent 
+        [achievement reportAchievementWithCompletionHandler: nil];
+    }
 }
 
 // -----------------------------------------------------------------------------
