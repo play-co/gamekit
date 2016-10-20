@@ -83,9 +83,16 @@ var nativeImpl = {
   },
 
   showGameAchievement: function nativeShowGameAchievement (cb) {
-    return GKPlugin.request('showGameAchievement', function (err, res) {
-      cb && cb(err, res);
-    });
+    if (platform == "android") {
+      return GKPlugin.request('showGameAchievement', function (err, res) {
+        cb && cb(err, res);
+      });
+    } else {
+      return GKPlugin.request('showGameCenter', function (err, res) {
+        cb && cb(err, res);
+      });
+    }
+    
   },
 
   /**
